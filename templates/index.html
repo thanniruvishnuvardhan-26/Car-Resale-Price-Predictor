@@ -16,504 +16,980 @@
 
 <body>
 
-    <!-- ==================== HEADER ==================== -->
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
 
-    <h1>Car Resale Price Predictor</h1>
+    <header class="hero">
 
-    <p>
-        Predict the resale value of your car using Machine Learning.
-    </p>
+        <div class="hero-badge">
+            MACHINE LEARNING PROJECT
+        </div>
 
-    <h2>Choose Prediction Mode</h2>
+        <h1>
+            Car Resale Price Predictor
+        </h1>
+
+        <p class="hero-description">
+            Estimate the resale value of your car using
+            trained Machine Learning models.
+        </p>
+
+    </header>
 
 
-    <!-- ==================== MODE SELECTION ==================== -->
 
-    <div class="mode-container">
+    <!-- =========================
+         MODEL SELECTION
+    ========================== -->
 
-        <!-- BASIC MODE -->
+    <main>
 
-        <div class="mode-card">
+        <section class="model-section">
 
-            <h3>Basic Prediction</h3>
+            <div class="section-heading">
 
-            <p>
-                Get a quick resale price estimate using
-                essential details about your car.
-            </p>
+                <span class="section-label">
+                    PREDICTION MODES
+                </span>
 
-            <p class="accuracy">
-                Validation R²: ~0.84
-            </p>
+                <h2>
+                    Choose Your Prediction Model
+                </h2>
 
-            <button type="button" id="basic-button">
-                Basic Prediction
-            </button>
+                <p>
+                    Select the model based on the information
+                    you have about your car.
+                </p>
+
+            </div>
+
+{% if error %}
+<div class="error-message">
+    {{ error }}
+</div>
+{% endif %}
+
+            <div class="mode-container">
+
+
+                <!-- ================= BASIC MODEL ================= -->
+
+                <div class="mode-card basic-card">
+
+                    <div class="card-icon">
+                        B
+                    </div>
+
+                    <span class="model-tag">
+                        QUICK ESTIMATE
+                    </span>
+
+                    <h3>
+                        Basic Prediction
+                    </h3>
+
+                    <p class="card-description">
+
+                        Get a quick resale price estimate using
+                        essential information about your vehicle.
+
+                    </p>
+
+
+                    <div class="model-stats">
+
+                        <div class="stat">
+
+                            <span class="stat-label">
+                                Model
+                            </span>
+
+                            <span class="stat-value">
+                                Random Forest
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <span class="stat-label">
+                                Test R²
+                            </span>
+
+                            <span class="stat-value">
+                                ~92.1%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="basic-button"
+                        class="mode-button">
+
+                        Use Basic Model →
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- ================= ADVANCED MODEL ================= -->
+
+                <div class="mode-card advanced-card">
+
+                    <div class="card-icon advanced-icon">
+                        A
+                    </div>
+
+                    <span class="model-tag advanced-tag">
+                        HIGHER ACCURACY
+                    </span>
+
+                    <h3>
+                        Advanced Prediction
+                    </h3>
+
+                    <p class="card-description">
+
+                        Uses the original purchase price along
+                        with other vehicle details for a more
+                        informed resale estimate.
+
+                    </p>
+
+
+                    <div class="model-stats">
+
+                        <div class="stat">
+
+                            <span class="stat-label">
+                                Model
+                            </span>
+
+                            <span class="stat-value">
+                                Gradient Boosting
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <span class="stat-label">
+                                Test R²
+                            </span>
+
+                            <span class="stat-value">
+                                ~98.2%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="advanced-button"
+                        class="mode-button advanced-button">
+
+                        Use Advanced Model →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+<!-- =========================
+     MODEL PERFORMANCE
+========================== -->
+
+<section class="performance-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            MODEL PERFORMANCE
+        </span>
+
+        <h2>
+            How Our Models Perform
+        </h2>
+
+        <p>
+            Both models were evaluated using R², MAE and RMSE
+            on the test dataset.
+        </p>
+
+    </div>
+
+
+    <div class="performance-card">
+
+        <div class="performance-table-wrapper">
+
+            <table class="performance-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Metric</th>
+                        <th>Basic Model</th>
+                        <th>Advanced Model</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <strong>Model</strong>
+                        </td>
+
+                        <td>
+                            Random Forest
+                        </td>
+
+                        <td>
+                            Tuned Gradient Boosting
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>R² Score</strong>
+                        </td>
+
+                        <td class="highlight-value">
+                            0.9214
+                        </td>
+
+                        <td class="highlight-value">
+                            0.9819
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>MAE</strong>
+                        </td>
+
+                        <td>
+                            ₹43,871
+                        </td>
+
+                        <td>
+                            ₹28,457
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>RMSE</strong>
+                        </td>
+
+                        <td>
+                            ₹78,841
+                        </td>
+
+                        <td>
+                            ₹37,297
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
 
         </div>
 
 
-        <!-- ADVANCED MODE -->
+        <div class="model-explanation">
 
-        <div class="mode-card">
+            <div class="explanation-box">
 
-            <h3>Advanced Prediction</h3>
+                <h3>
+                    Basic Model
+                </h3>
 
-            <p>
-                Uses the original purchase price along
-                with other car details for a more informed
-                resale estimate.
-            </p>
+                <p>
+                    Uses essential vehicle information to provide
+                    a quick resale price estimate. Random Forest
+                    achieved an R² score of approximately 92.14%.
+                </p>
 
-            <p class="accuracy">
-                Validation R²: ~0.98
-            </p>
+            </div>
 
-            <button type="button" id="advanced-button">
-                Advanced Prediction
-            </button>
+
+            <div class="explanation-box">
+
+                <h3>
+                    Advanced Model
+                </h3>
+
+                <p>
+                    Uses additional information including the
+                    original purchase price. Tuned Gradient
+                    Boosting achieved an R² score of approximately
+                    98.19% on the test set.
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
 
+        <p class="performance-note">
 
-    <!-- ==================== BASIC FORM ==================== -->
+            <strong>Note:</strong>
+            These metrics represent performance on the test
+            dataset and do not guarantee the same accuracy
+            for every real-world vehicle.
 
-    <div id="basic-form">
-
-        <h2>Basic Prediction</h2>
-
-        <form action="/predict/basic" method="POST">
-
-            <label for="yr_mfr">
-                Manufacture Year:
-            </label>
-
-            <input
-                type="number"
-                id="yr_mfr"
-                name="yr_mfr"
-                min='1990'
-                max='2026'
-                required
-            >
-
-            <br><br>
-
-
-            <label for="fuel_type">
-                Fuel Type:
-            </label>
-
-            <select
-                id="fuel_type"
-                name="fuel_type"
-                required
-            >
-
-                <option value="">
-                    Select Fuel Type
-                </option>
-
-                <option value="petrol">
-                    Petrol
-                </option>
-
-                <option value="diesel">
-                    Diesel
-                </option>
-
-                <option value="cng">
-                    CNG
-                </option>
-
-                <option value="electric">
-                    Electric
-                </option>
-
-                <option value="lpg">
-                    LPG
-                </option>
-
-            </select>
-
-            <br><br>
-
-
-            <label for="kms_run">
-                Kilometers Driven:
-            </label>
-
-            <input
-                type="number"
-                id="kms_run"
-                name="kms_run"
-                min="0"
-                required
-            >
-
-            <br><br>
-
-
-            <label for="city">
-                City:
-            </label>
-
-            <input
-                type="text"
-                id="city"
-                name="city"
-                required
-            >
-
-            <br><br>
-
-
-            <label for="body_type">
-                Body Type:
-            </label>
-
-            <select
-                id="body_type"
-                name="body_type"
-                required
-            >
-
-                <option value="">
-                    Select Body Type
-                </option>
-
-                <option value="hatchback">
-                    Hatchback
-                </option>
-
-                <option value="sedan">
-                    Sedan
-                </option>
-
-                <option value="suv">
-                    SUV
-                </option>
-
-                <option value="muv">
-                    MUV
-                </option>
-
-                <option value="coupe">
-                    Coupe
-                </option>
-
-            </select>
-
-            <br><br>
-
-
-            <label for="transmission">
-                Transmission:
-            </label>
-
-            <select
-                id="transmission"
-                name="transmission"
-                required
-            >
-
-                <option value="">
-                    Select Transmission
-                </option>
-
-                <option value="manual">
-                    Manual
-                </option>
-
-                <option value="automatic">
-                    Automatic
-                </option>
-
-            </select>
-
-            <br><br>
-
-
-            <label for="make">
-                Car Brand:
-            </label>
-
-            <input
-                type="text"
-                id="make"
-                name="make"
-                required
-            >
-
-            <br><br>
-
-
-            <label for="model">
-                Car Model:
-            </label>
-
-            <input
-                type="text"
-                id="model"
-                name="model"
-                required
-            >
-
-            <br><br>
-
-
-            <label for="total_owners">
-                Number of Owners:
-            </label>
-
-            <input
-                type="number"
-                id="total_owners"
-                name="total_owners"
-                min="1"
-                required
-            >
-
-            <br><br>
-
-
-            <button type="submit">
-                Predict Resale Price
-            </button>
-
-        </form>
+        </p>
 
     </div>
 
+</section>
 
-    <!-- ==================== ADVANCED FORM ==================== -->
 
-    <div id="advanced-form">
+        <!-- =========================
+             BASIC FORM
+        ========================== -->
 
-        <h2>Advanced Prediction</h2>
+        <section
+            id="basic-form"
+            class="prediction-form-container">
 
-        <form action="/predict/advanced" method="POST">
+            <div class="form-header">
 
-            <label for="adv_yr_mfr">
-                Manufacture Year:
-            </label>
+                <span class="form-badge basic-form-badge">
+                    BASIC MODEL
+                </span>
 
-            <input
-                type="number"
-                id="adv_yr_mfr"
-                name="yr_mfr"
-                min='1990'
-                max='2026'
-                required
-            >
+                <h2>
+                    Enter Car Details
+                </h2>
 
-            <br><br>
+                <p>
+                    Provide the following information to
+                    estimate your car's resale value.
+                </p>
 
+            </div>
 
-            <label for="adv_fuel_type">
-                Fuel Type:
-            </label>
 
-            <select
-                id="adv_fuel_type"
-                name="fuel_type"
-                required
-            >
+            <form
+                action="/predict/basic"
+                method="POST">
 
-                <option value="">
-                    Select Fuel Type
-                </option>
 
-                <option value="petrol">
-                    Petrol
-                </option>
+                <!-- Manufacture Year -->
 
-                <option value="diesel">
-                    Diesel
-                </option>
+                <div class="form-group">
 
-                <option value="cng">
-                    CNG
-                </option>
+                    <label for="yr_mfr">
+                        Manufacture Year
+                    </label>
 
-                <option value="electric">
-                    Electric
-                </option>
+                    <input
+                        type="number"
+                        id="yr_mfr"
+                        name="yr_mfr"
+                        min="1990"
+                        max="2026"
+                        placeholder="Example: 2022"
+                        required>
 
-                <option value="lpg">
-                    LPG
-                </option>
+                    <small>
+                        Enter a year between 1990 and 2026.
+                    </small>
 
-            </select>
+                </div>
 
-            <br><br>
 
 
-            <label for="adv_kms_run">
-                Kilometers Driven:
-            </label>
+                <!-- Fuel Type -->
 
-            <input
-                type="number"
-                id="adv_kms_run"
-                name="kms_run"
-                min='0'
-                required
-            >
+                <div class="form-group">
 
-            <br><br>
+                    <label for="fuel_type">
+                        Fuel Type
+                    </label>
 
+                    <select
+                        id="fuel_type"
+                        name="fuel_type"
+                        required>
 
-            <label for="adv_city">
-                City:
-            </label>
+                        <option value="">
+                            Select Fuel Type
+                        </option>
 
-            <input
-                type="text"
-                id="adv_city"
-                name="city"
-                required
-            >
+                        <option value="petrol">
+                            Petrol
+                        </option>
 
-            <br><br>
+                        <option value="diesel">
+                            Diesel
+                        </option>
 
+                        <option value="cng">
+                            CNG
+                        </option>
 
-            <label for="adv_body_type">
-                Body Type:
-            </label>
+                        <option value="electric">
+                            Electric
+                        </option>
 
-            <select
-                id="adv_body_type"
-                name="body_type"
-                required
-            >
+                        <option value="lpg">
+                            LPG
+                        </option>
 
-                <option value="">
-                    Select Body Type
-                </option>
+                    </select>
 
-                <option value="hatchback">
-                    Hatchback
-                </option>
+                </div>
 
-                <option value="sedan">
-                    Sedan
-                </option>
 
-                <option value="suv">
-                    SUV
-                </option>
 
-                <option value="muv">
-                    MUV
-                </option>
+                <!-- Kilometers -->
 
-                <option value="coupe">
-                    Coupe
-                </option>
+                <div class="form-group">
 
-            </select>
+                    <label for="kms_run">
+                        Kilometers Driven
+                    </label>
 
-            <br><br>
+                    <input
+                        type="number"
+                        id="kms_run"
+                        name="kms_run"
+                        min="0"
+                        placeholder="Example: 45000"
+                        required>
 
+                </div>
 
-            <label for="adv_transmission">
-                Transmission:
-            </label>
 
-            <select
-                id="adv_transmission"
-                name="transmission"
-                required
-            >
 
-                <option value="">
-                    Select Transmission
-                </option>
+                <!-- City -->
 
-                <option value="manual">
-                    Manual
-                </option>
+                <div class="form-group">
 
-                <option value="automatic">
-                    Automatic
-                </option>
+                    <label for="city">
+                        City
+                    </label>
 
-            </select>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Example: Hyderabad"
+                        required>
 
-            <br><br>
+                </div>
 
 
-            <label for="adv_make">
-                Car Brand:
-            </label>
 
-            <input
-                type="text"
-                id="adv_make"
-                name="make"
-                required
-            >
+                <!-- Body Type -->
 
-            <br><br>
+                <div class="form-group">
 
+                    <label for="body_type">
+                        Body Type
+                    </label>
 
-            <label for="adv_model">
-                Car Model:
-            </label>
+                    <select
+                        id="body_type"
+                        name="body_type"
+                        required>
 
-            <input
-                type="text"
-                id="adv_model"
-                name="model"
-                required
-            >
+                        <option value="">
+                            Select Body Type
+                        </option>
 
-            <br><br>
+                        <option value="hatchback">
+                            Hatchback
+                        </option>
 
+                        <option value="sedan">
+                            Sedan
+                        </option>
 
-            <label for="adv_total_owners">
-                Number of Owners:
-            </label>
+                        <option value="suv">
+                            SUV
+                        </option>
 
-            <input
-                type="number"
-                id="adv_total_owners"
-                name="total_owners"
-                min="1"
-                required
-            >
+                        <option value="muv">
+                            MUV
+                        </option>
 
-            <br><br>
+                        <option value="coupe">
+                            Coupe
+                        </option>
 
+                    </select>
 
-            <label for="original_price">
-                Original Purchase Price (₹):
-            </label>
+                </div>
 
-            <input
-                type="number"
-                id="original_price"
-                name="original_price"
-                min="1"
-                required
-            >
 
-            <br><br>
 
+                <!-- Transmission -->
 
-            <button type="submit">
-                Predict Resale Price
-            </button>
+                <div class="form-group">
 
-        </form>
+                    <label for="transmission">
+                        Transmission
+                    </label>
 
-    </div>
+                    <select
+                        id="transmission"
+                        name="transmission"
+                        required>
 
+                        <option value="">
+                            Select Transmission
+                        </option>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
+                        <option value="manual">
+                            Manual
+                        </option>
+
+                        <option value="automatic">
+                            Automatic
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Brand -->
+
+                <div class="form-group">
+
+                    <label for="make">
+                        Car Brand
+                    </label>
+
+                    <input
+                        type="text"
+                        id="make"
+                        name="make"
+                        placeholder="Example: Hyundai"
+                        required>
+
+                </div>
+
+
+
+                <!-- Model -->
+
+                <div class="form-group">
+
+                    <label for="model">
+                        Car Model
+                    </label>
+
+                    <input
+                        type="text"
+                        id="model"
+                        name="model"
+                        placeholder="Example: Creta"
+                        required>
+
+                </div>
+
+
+
+                <!-- Owners -->
+
+                <div class="form-group">
+
+                    <label for="total_owners">
+                        Number of Owners
+                    </label>
+
+                    <input
+                        type="number"
+                        id="total_owners"
+                        name="total_owners"
+                        min="1"
+                        placeholder="Example: 1"
+                        required>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="predict-button">
+
+                    Predict Resale Price
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =========================
+             ADVANCED FORM
+        ========================== -->
+
+        <section
+            id="advanced-form"
+            class="prediction-form-container">
+
+            <div class="form-header">
+
+                <span class="form-badge advanced-form-badge">
+                    ADVANCED MODEL
+                </span>
+
+                <h2>
+                    Enter Detailed Car Information
+                </h2>
+
+                <p>
+                    Include the original purchase price for
+                    a higher-accuracy prediction.
+                </p>
+
+            </div>
+
+
+            <form
+                action="/predict/advanced"
+                method="POST">
+
+
+                <!-- Manufacture Year -->
+
+                <div class="form-group">
+
+                    <label for="adv_yr_mfr">
+                        Manufacture Year
+                    </label>
+
+                    <input
+                        type="number"
+                        id="adv_yr_mfr"
+                        name="yr_mfr"
+                        min="1990"
+                        max="2026"
+                        placeholder="Example: 2022"
+                        required>
+
+                    <small>
+                        Enter a year between 1990 and 2026.
+                    </small>
+
+                </div>
+
+
+
+                <!-- Fuel Type -->
+
+                <div class="form-group">
+
+                    <label for="adv_fuel_type">
+                        Fuel Type
+                    </label>
+
+                    <select
+                        id="adv_fuel_type"
+                        name="fuel_type"
+                        required>
+
+                        <option value="">
+                            Select Fuel Type
+                        </option>
+
+                        <option value="petrol">
+                            Petrol
+                        </option>
+
+                        <option value="diesel">
+                            Diesel
+                        </option>
+
+                        <option value="cng">
+                            CNG
+                        </option>
+
+                        <option value="electric">
+                            Electric
+                        </option>
+
+                        <option value="lpg">
+                            LPG
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Kilometers -->
+
+                <div class="form-group">
+
+                    <label for="adv_kms_run">
+                        Kilometers Driven
+                    </label>
+
+                    <input
+                        type="number"
+                        id="adv_kms_run"
+                        name="kms_run"
+                        min="0"
+                        placeholder="Example: 45000"
+                        required>
+
+                </div>
+
+
+
+                <!-- City -->
+
+                <div class="form-group">
+
+                    <label for="adv_city">
+                        City
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adv_city"
+                        name="city"
+                        placeholder="Example: Hyderabad"
+                        required>
+
+                </div>
+
+
+
+                <!-- Body Type -->
+
+                <div class="form-group">
+
+                    <label for="adv_body_type">
+                        Body Type
+                    </label>
+
+                    <select
+                        id="adv_body_type"
+                        name="body_type"
+                        required>
+
+                        <option value="">
+                            Select Body Type
+                        </option>
+
+                        <option value="hatchback">
+                            Hatchback
+                        </option>
+
+                        <option value="sedan">
+                            Sedan
+                        </option>
+
+                        <option value="suv">
+                            SUV
+                        </option>
+
+                        <option value="muv">
+                            MUV
+                        </option>
+
+                        <option value="coupe">
+                            Coupe
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Transmission -->
+
+                <div class="form-group">
+
+                    <label for="adv_transmission">
+                        Transmission
+                    </label>
+
+                    <select
+                        id="adv_transmission"
+                        name="transmission"
+                        required>
+
+                        <option value="">
+                            Select Transmission
+                        </option>
+
+                        <option value="manual">
+                            Manual
+                        </option>
+
+                        <option value="automatic">
+                            Automatic
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Brand -->
+
+                <div class="form-group">
+
+                    <label for="adv_make">
+                        Car Brand
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adv_make"
+                        name="make"
+                        placeholder="Example: Hyundai"
+                        required>
+
+                </div>
+
+
+
+                <!-- Model -->
+
+                <div class="form-group">
+
+                    <label for="adv_model">
+                        Car Model
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adv_model"
+                        name="model"
+                        placeholder="Example: Creta"
+                        required>
+
+                </div>
+
+
+
+                <!-- Owners -->
+
+                <div class="form-group">
+
+                    <label for="adv_total_owners">
+                        Number of Owners
+                    </label>
+
+                    <input
+                        type="number"
+                        id="adv_total_owners"
+                        name="total_owners"
+                        min="1"
+                        placeholder="Example: 1"
+                        required>
+
+                </div>
+
+
+
+                <!-- Original Price -->
+
+                <div class="form-group">
+
+                    <label for="original_price">
+                        Original Purchase Price (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="original_price"
+                        name="original_price"
+                        min="1"
+                        placeholder="Example: 1200000"
+                        required>
+
+                    <small>
+                        Required for the Advanced Model.
+                    </small>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="predict-button advanced-predict-button">
+
+                    Predict Resale Price
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Car Resale Price Predictor
+            <span>•</span>
+            Machine Learning Project
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
 
@@ -531,7 +1007,8 @@
             document.getElementById("advanced-button");
 
 
-        // Show Basic Prediction form
+
+        // Show Basic Model
 
         basicButton.addEventListener("click", function () {
 
@@ -540,13 +1017,15 @@
             advancedForm.style.display = "none";
 
             basicForm.scrollIntoView({
-                behavior: "smooth"
+                behavior: "smooth",
+                block: "start"
             });
 
         });
 
 
-        // Show Advanced Prediction form
+
+        // Show Advanced Model
 
         advancedButton.addEventListener("click", function () {
 
@@ -555,13 +1034,15 @@
             advancedForm.style.display = "block";
 
             advancedForm.scrollIntoView({
-                behavior: "smooth"
+                behavior: "smooth",
+                block: "start"
             });
 
         });
 
 
-        // Hide both forms when page first loads
+
+        // Hide both forms when page loads
 
         basicForm.style.display = "none";
 

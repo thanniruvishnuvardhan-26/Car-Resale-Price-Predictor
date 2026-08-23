@@ -5,3 +5,4 @@ __pycache__/
 venv/
 env/
 .env
+Used_Car_Price_Prediction.csv

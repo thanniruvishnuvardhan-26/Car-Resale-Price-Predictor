@@ -13,31 +13,217 @@
 
 </head>
 
+
 <body>
 
-    <div id="result-page">
+    <main class="result-page">
 
-        <h1>Prediction Result</h1>
+        <div class="result-header">
 
-        <div id="result">
+            <div class="result-icon">
+                ✓
+            </div>
 
-            <h2>Estimated Resale Value</h2>
+            <span class="result-label">
+                PREDICTION COMPLETE
+            </span>
+
+            <h1>
+                Your Estimated Resale Value
+            </h1>
+
+            <p>
+                Your car's estimated resale value based on
+                the information provided is:
+            </p>
+
+        </div>
+
+
+
+        <section class="result-card">
+
+            <span class="result-title">
+                ESTIMATED RESALE VALUE
+            </span>
+
 
             <div class="price">
                 {{ prediction }}
             </div>
 
-            <p>
-                Prediction Mode: {{ mode }}
-            </p>
 
-            <a href="/" class="home-button">
-                ← Back to Home
+
+            <!-- =========================
+                 MODEL INFORMATION
+            ========================== -->
+
+            <div class="result-info">
+
+                <div class="result-info-item">
+
+                    <span class="info-label">
+                        Prediction Mode
+                    </span>
+
+                    <strong>
+                        {{ mode }}
+                    </strong>
+
+                </div>
+
+
+                {% if mode == "Basic" %}
+
+                <div class="result-info-item">
+
+                    <span class="info-label">
+                        ML Model
+                    </span>
+
+                    <strong>
+                        Random Forest
+                    </strong>
+
+                </div>
+
+
+                <div class="result-info-item">
+
+                    <span class="info-label">
+                        Test R²
+                    </span>
+
+                    <strong>
+                        92.14%
+                    </strong>
+
+                </div>
+
+                {% else %}
+
+                <div class="result-info-item">
+
+                    <span class="info-label">
+                        ML Model
+                    </span>
+
+                    <strong>
+                        Gradient Boosting
+                    </strong>
+
+                </div>
+
+
+                <div class="result-info-item">
+
+                    <span class="info-label">
+                        Test R²
+                    </span>
+
+                    <strong>
+                        98.19%
+                    </strong>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- =========================
+                 INTERPRETATION
+            ========================== -->
+
+            <div class="prediction-interpretation">
+
+                <div class="interpretation-icon">
+                    i
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        What does this mean?
+                    </h3>
+
+
+                    {% if mode == "Basic" %}
+
+                    <p>
+                        The Basic model uses essential vehicle
+                        information to estimate the resale value.
+                        Your result was generated using the
+                        Random Forest model selected during
+                        model evaluation.
+                    </p>
+
+                    {% else %}
+
+                    <p>
+                        The Advanced model uses additional
+                        information, including the original
+                        purchase price, to estimate the resale
+                        value. Your result was generated using
+                        the tuned Gradient Boosting model.
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 IMPORTANT NOTE
+            ========================== -->
+
+            <div class="result-note">
+
+                <strong>Important:</strong>
+
+                This value is a Machine Learning estimate,
+                not a guaranteed market price. Actual resale
+                value can vary depending on vehicle condition,
+                service history, location, market demand,
+                negotiations and other factors.
+
+            </div>
+
+
+
+            <!-- =========================
+                 ACTION
+            ========================== -->
+
+            <a
+                href="/"
+                class="home-button">
+
+                ← Make Another Prediction
+
             </a>
 
-        </div>
+        </section>
 
-    </div>
+    </main>
+
+
+
+    <footer>
+
+        <p>
+            Car Resale Price Predictor
+            <span>•</span>
+            Machine Learning Project
+        </p>
+
+    </footer>
 
 </body>
 
